@@ -213,6 +213,35 @@
 
     });
 
+    $('.btn-addcart-product-detail').each(function () {
+        var nameProduct = $('.product-detail-name').html();
+        $(this).on('click', function () {
+            swal(nameProduct, "will be dileverd to you soon!", "success");
+        });
+    });
 
+    $('.block2-btn-addcart').each(function () {
+        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+        $(this).on('click', function () {
+            var img = $(this).parent().parent().parent().find('.image').attr('src');
+            console.log(img);
+            // swal(nameProduct, "is added to cart !", "success");
+            swal({
+                imageUrl: "http://cdn.shopify.com/s/files/1/0986/5790/products/HelloDecal-PRINT_grande.png?v=1481472974",
+                imageHeight: 500,
+                imageAlt: 'A tall image'
+            });
+        });
+    });
+
+
+    $('.block2-btn-addwishlist').each(function () {
+        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+        $(this).on('click', function () {
+            swal(nameProduct, "will be delivered to you soon!", "success");
+
+            // swal(nameProduct, "is added to wishlist !", "success");
+        });
+    });
 
 })(jQuery);
