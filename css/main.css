@@ -2209,6 +2209,15 @@ li.sale-noti > a {
   padding: 8px 16px;
 }
 
+
+.footer-logo{
+height:4rem;
+margin-left: 1rem;
+display:block;
+}
+.footer-logo-1:hover{
+  transform: translateX(20px);
+}
 .tab01 .nav-link {
   padding: 0;
   border-radius: 0px;
