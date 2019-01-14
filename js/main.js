@@ -234,7 +234,10 @@
         });
     });
 
-
+    $('.slick3-dot-overlay').on('click', function () {
+        debugger
+        alert($(this));
+    });
     $('.block2-btn-addwishlist').each(function () {
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
         $(this).on('click', function () {

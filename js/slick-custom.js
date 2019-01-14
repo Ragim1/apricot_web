@@ -138,9 +138,10 @@
         autoplaySpeed: 6000,
         arrows: false,
         customPaging: function (slick, index) {
+            // debugger
             var portrait = $(slick.$slides[index]).data('thumb');
             return '<img src=" ' + portrait + ' "/><div class="slick3-dot-overlay"></div>';
-            debugger
+
         },
     });
 
