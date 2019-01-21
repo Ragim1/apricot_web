@@ -4,8 +4,14 @@
     return re.test(email);
   }
 
+
+  function validEmail(phone) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+  }
+
   function validateHuman(honeypot) {
-    if (honeypot) {  //if hidden form filled up
+    if (honeypot) { //if hidden form filled up
       console.log("Robot Detected!");
       return true;
     } else {
@@ -59,10 +65,10 @@
     return formData;
   }
 
-  function handleFormSubmit(event) {  // handles form submit without any jquery
-    event.preventDefault();           // we are submitting via xhr below
+  function handleFormSubmit(event) { // handles form submit without any jquery
+    event.preventDefault(); // we are submitting via xhr below
     var form = event.target;
-    var data = getFormData(form);         // get the values submitted in the form
+    var data = getFormData(form); // get the values submitted in the form
 
     /* OPTION: Remove this comment to enable SPAM prevention, see README.md
     if (validateHuman(data.honeypot)) {  //if form is filled, form will not be submitted
@@ -70,7 +76,7 @@
     }
     */
 
-    if (data.email && !validEmail(data.email)) {   // if email is not valid show error
+    if (data.email && !validEmail(data.email)) { // if email is not valid show error
       var invalidEmail = form.querySelector(".email-invalid");
       if (invalidEmail) {
         invalidEmail.style.display = "block";
