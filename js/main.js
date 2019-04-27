@@ -392,79 +392,39 @@
 
     });
 
-    //Retrieving data:
-    var text = localStorage.getItem("sentJSON");
-    var obj = JSON.parse(text);
-    console.log(obj);
-    console.log(obj.length);
-    for (i = 0; i < obj.length; i++) {
+    retriveToCart();
 
-        var addDiv = "		<tr class='table-row'>" +
-            "<td class = 'column-1' >" +
-            "<div class = 'cart-img-product b-rad-4 o-f-hidden' >" +
-            "<img src = " + obj[i].image + " alt = 'IMG - PRODUCT ' >" +
-            "</div>" + "</td>" +
-            "<td class = 'column-2' >" + obj[i].name + "</td>" +
-            "<td class = 'column-3' >" + obj[i].price + "</td>" +
-            "<td class = 'column-4' >" + "<div class = 'flex-w bo5 of-hidden w-size17' >" +
-            "<button class = 'btn-num-product-down color1 flex-c-m size7 bg8 eff2' >" +
-            "<i class = 'fs-12 fa fa-minus' aria-hidden = 'true' >" + "</i>" + " </button>" +
+    function retriveToCart() {
+        //Retrieving data:
+        var text = localStorage.getItem("sentJSON");
+        var obj = JSON.parse(text);
+        console.log(obj);
+        console.log(obj.length);
+        for (i = 0; i < obj.length; i++) {
 
-            "<input class = 'size8 m-text18 t-center num-product' type = 'number' name = 'num-product1' value = " + obj[i].qty + " >" +
-            "<button class = 'btn-num-product-up color1 flex-c-m size7 bg8 eff2' >" +
-            "<i class = 'fs-12 fa fa-plus' aria-hidden = 'true' >" + "</i>" + "</button >" + "</div>" + "</td>" +
-            "<td class = 'column-5' >" + obj[i].total + "</td> </tr > ";
+            var addDiv = "		<tr class='table-row'>" +
+                "<td class = 'column-1' >" +
+                "<div class = 'cart-img-product b-rad-4 o-f-hidden' >" +
+                "<img src = " + obj[i].image + " alt = 'IMG - PRODUCT ' >" +
+                "</div>" + "</td>" +
+                "<td class = 'column-2' >" + obj[i].name + "</td>" +
+                "<td class = 'column-3' >" + obj[i].price + "</td>" +
+                "<td class = 'column-4' >" + "<div class = 'flex-w bo5 of-hidden w-size17' >" +
+                "<button class = 'btn-num-product-down color1 flex-c-m size7 bg8 eff2' >" +
+                "<i class = 'fs-12 fa fa-minus' aria-hidden = 'true' >" + "</i>" + " </button>" +
 
-        var addDivs = "<div class='row table'>" + "<div class='col-lg-3 show_name'>" +
-            obj[i].qty + "</div>" + "<div class = 'col-lg-3 show_price ' >" + obj[i].price +
-            " </div>" + " <div class = 'col-lg-3 show_image' > " +
-            "<img src='" + obj[i].image + "' width='100px' height='100px' alt='no image'>" + "</div>" + "</div>"
-        $('.table-shopping-cart').append(addDiv);
-        tot += obj[i].total;
-        console.log(tot);
-        $('.set_total').text(obj[i].total);
+                "<input class = 'size8 m-text18 t-center num-product' type = 'number' name = 'num-product1' value = " + obj[i].qty + " >" +
+                "<button class = 'btn-num-product-up color1 flex-c-m size7 bg8 eff2' >" +
+                "<i class = 'fs-12 fa fa-plus' aria-hidden = 'true' >" + "</i>" + "</button >" + "</div>" + "</td>" +
+                "<td class = 'column-5' >" + obj[i].total + "</td> </tr > ";
+
+            $('.table-shopping-cart').append(addDiv);
+            tot += obj[i].total;
+            console.log(tot);
+            $('.set_total').text(obj[i].total);
+        }
+        $('.cart-total').text(obj.total);
+
     }
-    $('.cart-total').text(obj.total);
 
-
-    // $(".form_phone").keyup(function () {
-    //     var total = 10;
-    //     var this_number = $(this).val();
-    // debugger
-    //     print(this_number);
-    //     if (total == this_number) {
-    //         alert("okey number");
-    //     }
-    // });
-
-    // $(function () {
-    //     $(".gform").validate({
-    //         rules: {
-    //             phone: {
-    //                 required: true,
-    //                 range: [10, 10]
-    //             }
-    //         }
-    //     });
-    // });
-
-    // function getValidNumber(value) {
-    //     value = $.trim(value).replace(/\D/g, "");
-
-    //     if (value.substring(0, 1) == "1") {
-    //         value = value.substring(1);
-    //     }
-
-    //     if (value.length == 10) {
-    //         return value;
-    //     }
-
-    //     return false;
-    // }
-    // var num = getValidNumber("(123) 456-7890");
-    // if (num !== false) {
-    //     alert("The valid number is: " + num);
-    // } else {
-    //     alert("The number you passed is not a valid US phone number");
-    // }
 })(jQuery);
