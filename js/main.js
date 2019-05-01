@@ -235,28 +235,6 @@
         $(".video-mo-01").css("opacity", "0");
     });
 
-    $(".add_to_cart").on("click", function () {
-        var name = $(this)
-            .closest(".container")
-            .find(".product-detail-name")
-            .text();
-        var price = $(this)
-            .closest(".container")
-            .find(".m-text17")
-            .text();
-        var size = $(this)
-            .closest(".container")
-            .find(".selection-2_size")
-            .val();
-        var color = $(this)
-            .closest(".container")
-            .find(".selection-2_color")
-            .val();
-        // $.trim(name);
-        console.log($.trim(name) + " " + $.trim(price) + " " + size + " " + color);
-        debugger;
-    });
-
     $(".btn-addcart-product-detail").each(function () {
         var nameProduct = $(".product-detail-name").html();
         $(this).on("click", function () {
@@ -319,6 +297,28 @@
         });
     });
 
+    $(".add_to_cart").on("click", function () {
+        var name = $(this)
+            .closest(".container")
+            .find(".product-detail-name")
+            .text();
+        var price = $(this)
+            .closest(".container")
+            .find(".m-text17")
+            .text();
+        var size = $(this)
+            .closest(".container")
+            .find(".selection-2_size")
+            .val();
+        var color = $(this)
+            .closest(".container")
+            .find(".selection-2_color")
+            .val();
+        // $.trim(name);
+        console.log($.trim(name) + " " + $.trim(price) + " " + size + " " + color);
+        debugger;
+    });
+
     $(".add-to-cart").on("click", function () {
         debugger
         var name = $(this).closest('.item-slick2').find('.product-detail-name').text();
@@ -368,26 +368,6 @@
         //		myJSON.push(myJSON);
         localStorage.setItem("sentJSON", myJSON);
         console.log("length in local storage=" + localStorage.length);
-
-        //Retrieving data:
-        var text = localStorage.getItem("sentJSON");
-        var obj = JSON.parse(text);
-        //console.log(obj);
-        debugger
-        document.getElementsByClassName("show_name").text = obj.name;
-        console.log(obj.length);
-        var tot = 0;
-        for (i = 0; i < obj.length; i++) {
-            var addDivs = "<div class='row table'>" + "<div class='col-lg-3 show_name'>" +
-                obj[i].qty + "</div>" + "<div class = 'col-lg-3 show_price ' >" + obj[i].price +
-                " </div>" + " <div class = 'col-lg-3 show_image' > " +
-                "<img src='" + obj[i].image + "' width='100px' height='100px' alt='no image'>" + "</div>" + "</div>"
-            $('.cartList').append(addDivs);
-            tot += obj[i].total;
-            console.log(tot);
-            $('.set_total').text(obj[i].total);
-        }
-        $('.set_total').text(tot);
 
 
     });
